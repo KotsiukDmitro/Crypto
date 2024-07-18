@@ -2,7 +2,7 @@ import { Button, Layout, Select, Space, Modal, Drawer } from "antd"
 import { useCrypto } from "../../context/ctypto-context"
 import { useEffect, useState } from "react";
 import CoinInfoModal from "../CoinInfoModal";
-import AddssetForm from "../AddAssetForm";
+import AddAssetForm from "../AddAssetForm";
 
 
 
@@ -52,9 +52,9 @@ export default function AppHeader() {
       <CoinInfoModal coin={coin} />
     </Modal>
 
-    <Drawer width={600} title="Add Asset" onClose={() => setDrawer(false)} open={drawer}>
-<AddssetForm />
-      </Drawer>
+    <Drawer width={600} title="Add Asset" onClose={() => setDrawer(false)} open={drawer} destroyOnClose>
+      <AddAssetForm onClose={() => setDrawer(false)} />
+    </Drawer>
 
   </Layout.Header>
 }
